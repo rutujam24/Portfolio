@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rutuja More | Data Analytics & Data Science</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,500;1,400;1,500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0e1117;
+  --bg2:#141820;
+  --card:#1a2030;
+  --card2:#1e2538;
+  --border:rgba(255,255,255,0.08);
+  --borderhov:rgba(100,160,255,0.4);
+  --accent:#6aa3f5;
+  --accent2:#93bff7;
+  --gold:#f0c060;
+  --green:#5ecb8a;
+  --text:#eef2ff;
+  --sub:#9ba8c0;
+  --dim:#4d5a75;
+  --sans:'Plus Jakarta Sans',sans-serif;
+  --serif:'Lora',serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden}
+
+/* ── ANIMATED BG ── */
+.bg-wrap{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);animation:drift 18s ease-in-out infinite}
+.o1{width:520px;height:520px;background:rgba(80,130,255,0.09);top:-80px;right:-60px;animation-delay:0s}
+.o2{width:380px;height:380px;background:rgba(120,80,240,0.07);bottom:5%;left:-60px;animation-delay:6s}
+.o3{width:260px;height:260px;background:rgba(80,200,160,0.06);top:45%;right:12%;animation-delay:12s}
+@keyframes drift{0%,100%{transform:translate(0,0)}33%{transform:translate(18px,-22px)}66%{transform:translate(-14px,18px)}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(14,17,23,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-in{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 2rem;height:64px}
+.logo{font-family:var(--sans);font-weight:800;font-size:1.05rem;color:var(--text);text-decoration:none;letter-spacing:-0.01em}
+.logo em{font-style:normal;color:var(--accent)}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links a{color:var(--sub);text-decoration:none;font-size:0.82rem;font-weight:500;padding:0.4rem 0.9rem;border-radius:7px;transition:all 0.2s;letter-spacing:0.01em}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,0.06)}
+.nav-cv{background:var(--accent);color:#0e1117;padding:0.45rem 1.1rem;border-radius:7px;font-size:0.8rem;font-weight:700;text-decoration:none;transition:all 0.2s;font-family:var(--sans)}
+.nav-cv:hover{background:var(--accent2);transform:translateY(-1px)}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:center;padding:80px 2rem 60px;position:relative;z-index:1}
+.hero-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:0.55rem;background:rgba(100,160,245,0.08);border:1px solid rgba(100,160,245,0.2);border-radius:999px;padding:0.35rem 1rem;font-size:0.74rem;color:var(--accent);letter-spacing:0.06em;font-weight:600;text-transform:uppercase;margin-bottom:1.75rem;animation:fadeUp 0.7s ease both}
+.pulse{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
+.hero-h1{font-size:clamp(3rem,6vw,5rem);font-weight:800;letter-spacing:-0.035em;line-height:1.04;margin-bottom:0.9rem;animation:fadeUp 0.7s 0.1s ease both}
+.hero-h1 .cursive{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--accent)}
+.hero-role{font-size:1.05rem;color:var(--sub);font-weight:400;margin-bottom:1.4rem;animation:fadeUp 0.7s 0.18s ease both}
+.hero-role strong{color:var(--text);font-weight:600}
+.hero-desc{font-size:0.97rem;color:var(--sub);line-height:1.8;max-width:520px;margin-bottom:2.4rem;animation:fadeUp 0.7s 0.24s ease both}
+.hero-btns{display:flex;gap:0.9rem;flex-wrap:wrap;animation:fadeUp 0.7s 0.3s ease both}
+.btn-fill{background:var(--accent);color:#0e1117;padding:0.78rem 1.7rem;border-radius:9px;font-weight:700;font-size:0.88rem;text-decoration:none;transition:all 0.2s;font-family:var(--sans);display:inline-flex;align-items:center;gap:0.4rem}
+.btn-fill:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(100,160,245,0.3)}
+.btn-ghost{border:1px solid var(--border);color:var(--sub);padding:0.78rem 1.7rem;border-radius:9px;font-weight:500;font-size:0.88rem;text-decoration:none;transition:all 0.2s;font-family:var(--sans)}
+.btn-ghost:hover{border-color:var(--borderhov);color:var(--accent);transform:translateY(-2px)}
+.hero-stats{display:flex;flex-direction:column;gap:0.9rem;animation:fadeUp 0.9s 0.35s ease both}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.5rem;text-align:center;min-width:120px;transition:border-color 0.3s}
+.stat-box:hover{border-color:var(--borderhov)}
+.stat-n{font-weight:800;font-size:1.9rem;color:var(--text);letter-spacing:-0.03em;line-height:1}
+.stat-n span{color:var(--accent)}
+.stat-l{font-size:0.68rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SECTION BASE ── */
+section{padding:6rem 2rem;position:relative;z-index:1}
+.wrap{max-width:1080px;margin:0 auto}
+.eyebrow{font-size:0.7rem;font-weight:700;color:var(--accent);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.6rem}
+.eyebrow::before{content:'';width:22px;height:1.5px;background:var(--accent);flex-shrink:0}
+h2.stitle{font-size:clamp(1.9rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-0.025em;line-height:1.1;margin-bottom:0.7rem}
+h2.stitle .it{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--accent)}
+.ssub{color:var(--sub);font-size:0.96rem;max-width:480px;line-height:1.8;margin-bottom:3.2rem}
+
+/* ── ABOUT ── */
+#about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-av{width:220px;height:220px;border-radius:24px;background:linear-gradient(135deg,rgba(100,163,245,0.12),rgba(130,80,255,0.08));border:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.av-init{font-weight:800;font-size:4.5rem;color:var(--accent);opacity:0.85}
+.av-ring{position:absolute;inset:-1px;border-radius:24px;border:1.5px solid rgba(100,163,245,0.25);animation:ringPulse 3s ease-in-out infinite}
+@keyframes ringPulse{0%,100%{opacity:0.3}50%{opacity:1}}
+.av-tag{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);background:var(--green);color:#0a1a0f;font-size:0.68rem;font-weight:700;padding:0.3rem 0.9rem;border-radius:999px;white-space:nowrap;letter-spacing:0.04em}
+.about-p{color:var(--sub);line-height:1.85;margin-bottom:0.9rem;font-size:0.97rem}
+.chips{display:flex;flex-wrap:wrap;gap:0.55rem;margin-top:1.4rem}
+.chip{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--sub);padding:0.28rem 0.8rem;border-radius:8px;font-size:0.76rem;font-weight:500;transition:all 0.2s}
+.chip:hover{border-color:var(--borderhov);color:var(--accent2)}
+
+/* ── SKILLS ── */
+#skills{background:var(--bg)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.sk-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;transition:all 0.3s;position:relative;overflow:hidden}
+.sk-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(100,163,245,0.04),transparent);opacity:0;transition:opacity 0.3s}
+.sk-card:hover{border-color:rgba(100,163,245,0.35);transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,0.3)}
+.sk-card:hover::before{opacity:1}
+.sk-ico{font-size:1.4rem;margin-bottom:0.7rem}
+.sk-title{font-weight:700;font-size:0.8rem;color:var(--text);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.85rem}
+.sk-tags{display:flex;flex-wrap:wrap;gap:0.38rem}
+.sk-tag{font-size:0.72rem;color:var(--sub);background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:0.2rem 0.55rem;border-radius:5px;transition:all 0.2s}
+.sk-card:hover .sk-tag{border-color:rgba(100,163,245,0.2);color:var(--accent2)}
+
+/* ── PROJECTS ── */
+#projects{background:var(--bg2)}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2rem;display:flex;flex-direction:column;transition:all 0.3s;position:relative;overflow:hidden}
+.pc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);transform:scaleX(0);transition:transform 0.4s}
+.pc:hover{border-color:rgba(100,163,245,0.25);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.35)}
+.pc:hover::after{transform:scaleX(1)}
+.pc.wide{grid-column:span 2}
+.pc-num{font-size:0.68rem;color:var(--dim);letter-spacing:0.1em;font-weight:600;text-transform:uppercase;margin-bottom:0.7rem}
+.pc-title{font-weight:700;font-size:1.05rem;color:var(--text);margin-bottom:0.55rem;line-height:1.3;letter-spacing:-0.01em}
+.pc-desc{font-size:0.87rem;color:var(--sub);line-height:1.75;flex:1;margin-bottom:1.1rem}
+.pc-metrics{display:flex;flex-wrap:wrap;gap:0.45rem;margin-bottom:1.1rem}
+.met{font-size:0.72rem;font-weight:600;color:var(--green);background:rgba(94,203,138,0.08);border:1px solid rgba(94,203,138,0.2);padding:0.22rem 0.6rem;border-radius:6px}
+.pc-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1.1rem}
+.ptag{font-size:0.7rem;color:var(--dim);background:rgba(255,255,255,0.03);border:1px solid var(--border);padding:0.18rem 0.5rem;border-radius:4px}
+.pc-link{color:var(--accent);font-size:0.81rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;transition:gap 0.2s}
+.pc-link:hover{gap:0.55rem}
+
+/* ── CERTIFICATIONS ── */
+#certifications{background:var(--bg)}
+.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.cc{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;display:flex;gap:1.4rem;align-items:flex-start;transition:all 0.3s}
+.cc:hover{border-color:rgba(240,192,96,0.35);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,0.25)}
+.cc-ico{width:50px;height:50px;border-radius:12px;background:rgba(240,192,96,0.08);border:1px solid rgba(240,192,96,0.18);display:flex;align-items:center;justify-content:center;font-size:1.35rem;flex-shrink:0}
+.cc-name{font-weight:700;font-size:0.95rem;color:var(--text);margin-bottom:0.3rem;line-height:1.35}
+.cc-by{font-size:0.82rem;color:var(--sub);margin-bottom:0.6rem}
+.cc-badge{display:inline-block;font-size:0.69rem;font-weight:700;color:var(--gold);background:rgba(240,192,96,0.08);border:1px solid rgba(240,192,96,0.2);padding:0.22rem 0.7rem;border-radius:999px;letter-spacing:0.04em}
+
+/* ── EDUCATION ── */
+#education{background:var(--bg2)}
+.edu-wrap{position:relative;padding-left:2rem}
+.edu-wrap::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,var(--accent),rgba(100,163,245,0.06))}
+.edu-item{position:relative;padding-bottom:2.5rem;padding-left:1.6rem}
+.edu-item:last-child{padding-bottom:0}
+.edu-item::before{content:'';position:absolute;left:-2rem;top:5px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg2);box-shadow:0 0 0 3px rgba(100,163,245,0.15)}
+.edu-yr{font-size:0.7rem;font-weight:700;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem}
+.edu-deg{font-weight:700;font-size:1rem;color:var(--text);margin-bottom:0.2rem;letter-spacing:-0.01em}
+.edu-inst{font-size:0.87rem;color:var(--sub);margin-bottom:0.45rem}
+.edu-score{display:inline-flex;background:rgba(100,163,245,0.07);border:1px solid rgba(100,163,245,0.18);color:var(--accent2);font-size:0.73rem;font-weight:600;padding:0.22rem 0.72rem;border-radius:999px}
+
+/* ── CONTACT ── */
+#contact{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.c-links{display:flex;flex-direction:column;gap:0.85rem}
+.cl{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--sub);padding:0.88rem 1.1rem;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:all 0.25s;font-size:0.87rem}
+.cl:hover{border-color:var(--borderhov);color:var(--accent);transform:translateX(5px)}
+.cl-ico{width:34px;height:34px;border-radius:8px;background:rgba(100,163,245,0.07);border:1px solid rgba(100,163,245,0.14);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0}
+.form{display:flex;flex-direction:column;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:0.38rem}
+.fg label{font-size:0.72rem;font-weight:600;color:var(--sub);letter-spacing:0.07em;text-transform:uppercase}
+.fg input,.fg textarea{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:0.82rem 1rem;color:var(--text);font-family:var(--sans);font-size:0.9rem;outline:none;transition:border-color 0.2s;resize:none}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--dim)}
+.fg input:focus,.fg textarea:focus{border-color:rgba(100,163,245,0.45)}
+.fg textarea{height:118px}
+.form-btn{background:var(--accent);color:#0e1117;border:none;padding:0.88rem;border-radius:10px;font-family:var(--sans);font-size:0.9rem;font-weight:700;cursor:pointer;transition:all 0.2s}
+.form-btn:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(100,163,245,0.25)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:1.8rem 2rem;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;max-width:100%}
+.fc{font-size:0.77rem;color:var(--dim)}
+.fc span{color:var(--accent)}
+.fback{font-size:0.77rem;color:var(--dim);text-decoration:none;transition:color 0.2s}
+.fback:hover{color:var(--accent)}
+
+/* ── REVEAL ANIMATIONS ── */
+.r{opacity:0;transform:translateY(26px);transition:opacity 0.7s ease,transform 0.7s ease}
+.r.on{opacity:1;transform:translateY(0)}
+.r2{opacity:0;transform:translateY(26px);transition:opacity 0.7s 0.13s ease,transform 0.7s 0.13s ease}
+.r2.on{opacity:1;transform:translateY(0)}
+.r3{opacity:0;transform:translateY(26px);transition:opacity 0.7s 0.24s ease,transform 0.7s 0.24s ease}
+.r3.on{opacity:1;transform:translateY(0)}
+
+/* ── FLOATING PARTICLES ── */
+.particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+.particle{position:absolute;width:2px;height:2px;background:var(--accent);border-radius:50%;opacity:0;animation:floatUp linear infinite}
+@keyframes floatUp{0%{opacity:0;transform:translateY(0) scale(1)}20%{opacity:0.4}80%{opacity:0.15}100%{opacity:0;transform:translateY(-80vh) scale(0.3)}}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  section{padding:4rem 1.5rem}
+  #hero{padding:80px 1.5rem 50px}
+  .hero-in{grid-template-columns:1fr;gap:2.5rem}
+  .hero-stats{flex-direction:row;flex-wrap:wrap;justify-content:center}
+  .stat-box{min-width:100px}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .proj-grid{grid-template-columns:1fr}
+  .pc.wide{grid-column:span 1}
+  .cert-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:0.6rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-wrap">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+</div>
+
+<div class="particles" id="particles"></div>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-in">
+    <a href="#hero" class="logo">Rutuja<em>.</em></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#" class="nav-cv" id="cvBtn">Download CV</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-in">
+    <div>
+      <div class="hero-badge"><div class="pulse"></div>Available for Opportunities · Pune, India</div>
+      <h1 class="hero-h1">Rutuja<br><span class="cursive">Dinkar More</span></h1>
+      <p class="hero-role"><strong>Data Analytics & Data Science</strong> · BE IT Graduate 2025</p>
+      <p class="hero-desc">Turning raw data into confident decisions. Skilled in Python, SQL, Power BI, and Machine Learning — with 6 end-to-end projects and an IIT Guwahati certification.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-fill">View My Work ↓</a>
+        <a href="#contact" class="btn-ghost">Let's Connect</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-n">6<span>+</span></div><div class="stat-l">Projects</div></div>
+      <div class="stat-box"><div class="stat-n">91<span>%</span></div><div class="stat-l">Best Accuracy</div></div>
+      <div class="stat-box"><div class="stat-n">148<span>K</span></div><div class="stat-l">Records Analysed</div></div>
+      <div class="stat-box"><div class="stat-n">2</div><div class="stat-l">Certifications</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="r" style="display:flex;justify-content:center">
+        <div style="position:relative;display:inline-block">
+          <div class="about-av"><div class="av-init">RM</div><div class="av-ring"></div></div>
+          <div class="av-tag">✦ Class of 2025</div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow r">Who I Am</div>
+        <h2 class="stitle r">About <span class="it">Me</span></h2>
+        <p class="about-p r2">Hi, I'm Rutuja — a fresh Information Technology graduate from I2IT, Pune with a genuine passion for Data Analytics and Data Science. I hold an Advanced Certification in Master in Data Science from E&ICT Academy, IIT Guwahati.</p>
+        <p class="about-p r2">I love the full journey of a data problem — from messy raw data through EDA and feature engineering, all the way to a deployed ML model or an interactive Power BI dashboard. I believe good data work is equal parts rigour and storytelling.</p>
+        <p class="about-p r2">I also completed JP Morgan Chase & Co.'s Quantitative Research simulation and am actively seeking Data Analyst and Data Science opportunities where I can contribute from day one.</p>
+        <div class="chips r3">
+          <span class="chip">📍 Pune, Maharashtra</span>
+          <span class="chip">🎓 BE IT – 2025</span>
+          <span class="chip">📊 Data Analytics</span>
+          <span class="chip">🤖 Machine Learning</span>
+          <span class="chip">⚡ Open to Work</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow r">Toolkit</div>
+    <h2 class="stitle r">Technical <span class="it">Skills</span></h2>
+    <p class="ssub r">End-to-end data skills — from SQL and EDA to deployed ML models and BI dashboards.</p>
+    <div class="skills-grid r2">
+      <div class="sk-card">
+        <div class="sk-ico">🐍</div>
+        <div class="sk-title">Programming</div>
+        <div class="sk-tags"><span class="sk-tag">Python</span><span class="sk-tag">SQL</span><span class="sk-tag">MySQL</span></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-ico">🔍</div>
+        <div class="sk-title">Data Analytics & EDA</div>
+        <div class="sk-tags"><span class="sk-tag">EDA</span><span class="sk-tag">Data Cleaning</span><span class="sk-tag">Preprocessing</span><span class="sk-tag">ETL</span><span class="sk-tag">Feature Engineering</span><span class="sk-tag">Statistical Analysis</span><span class="sk-tag">Data Storytelling</span></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-ico">🤖</div>
+        <div class="sk-title">Machine Learning</div>
+        <div class="sk-tags"><span class="sk-tag">Scikit-learn</span><span class="sk-tag">Regression</span><span class="sk-tag">Classification</span><span class="sk-tag">Predictive Modeling</span><span class="sk-tag">Model Evaluation</span></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-ico">📊</div>
+        <div class="sk-title">Visualization & BI</div>
+        <div class="sk-tags"><span class="sk-tag">Power BI</span><span class="sk-tag">Matplotlib</span><span class="sk-tag">Seaborn</span><span class="sk-tag">Excel Dashboards</span><span class="sk-tag">KPI Reporting</span><span class="sk-tag">DAX</span></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-ico">🛠️</div>
+        <div class="sk-title">Libraries & Tools</div>
+        <div class="sk-tags"><span class="sk-tag">Pandas</span><span class="sk-tag">NumPy</span><span class="sk-tag">Jupyter Notebook</span><span class="sk-tag">Streamlit</span><span class="sk-tag">Flask</span><span class="sk-tag">Git</span><span class="sk-tag">GitHub</span></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-ico">💼</div>
+        <div class="sk-title">Business & Analytical</div>
+        <div class="sk-tags"><span class="sk-tag">Business Intelligence</span><span class="sk-tag">Trend Analysis</span><span class="sk-tag">Data Reporting</span><span class="sk-tag">Decision Making</span><span class="sk-tag">Data Modeling</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow r">Work</div>
+    <h2 class="stitle r">Featured <span class="it">Projects</span></h2>
+    <p class="ssub r">Six end-to-end projects across analytics, machine learning, and data engineering — all with real measurable results.</p>
+    <div class="proj-grid">
+      <div class="pc wide r">
+        <div class="pc-num">01 · Featured Project</div>
+        <h3 class="pc-title">Speak-To-Database — NLP Voice & Text to SQL System</h3>
+        <p class="pc-desc">Full-stack web application enabling non-technical users to query a MySQL database using plain English text or voice commands. Built an end-to-end NLP-to-SQL pipeline with Flask backend, removing the SQL knowledge barrier entirely.</p>
+        <div class="pc-metrics"><span class="met">NLP-to-SQL Pipeline</span><span class="met">Voice + Text Input</span><span class="met">MySQL Integration</span><span class="met">Live Deployment</span></div>
+        <div class="pc-tags"><span class="ptag">Python</span><span class="ptag">MySQL</span><span class="ptag">NLP</span><span class="ptag">Flask</span><span class="ptag">Full-Stack</span><span class="ptag">Git</span></div>
+        <a href="https://github.com/rutujam24" target="_blank" class="pc-link">View on GitHub →</a>
+      </div>
+      <div class="pc r">
+        <div class="pc-num">02</div>
+        <h3 class="pc-title">Predicting Machine Failure</h3>
+        <p class="pc-desc">ML model to detect potential machine failures in advance using sensor data, reducing maintenance costs and minimising production downtime through early-warning classification.</p>
+        <div class="pc-metrics"><span class="met">88% Accuracy</span><span class="met">~30% Cost Reduction</span></div>
+        <div class="pc-tags"><span class="ptag">Python</span><span class="ptag">Scikit-learn</span><span class="ptag">Pandas</span><span class="ptag">NumPy</span><span class="ptag">Git</span></div>
+        <a href="https://github.com/rutujam24" target="_blank" class="pc-link">View on GitHub →</a>
+      </div>
+      <div class="pc r">
+        <div class="pc-num">03</div>
+        <h3 class="pc-title">Loan Status Prediction</h3>
+        <p class="pc-desc">Decision Tree classifier predicting bank loan approvals, deployed as a live Streamlit web app and Flask REST API for real-time end-user predictions.</p>
+        <div class="pc-metrics"><span class="met">91% Accuracy</span><span class="met">REST API Deployed</span></div>
+        <div class="pc-tags"><span class="ptag">Python</span><span class="ptag">Decision Tree</span><span class="ptag">Streamlit</span><span class="ptag">Flask</span></div>
+        <a href="https://github.com/rutujam24" target="_blank" class="pc-link">View on GitHub →</a>
+      </div>
+      <div class="pc r">
+        <div class="pc-num">04</div>
+        <h3 class="pc-title">Delivery Duration Prediction</h3>
+        <p class="pc-desc">Linear Regression model predicting estimated delivery times across 5,000+ records, reducing prediction error and improving logistics planning accuracy.</p>
+        <div class="pc-metrics"><span class="met">R² Score: 0.82</span><span class="met">18% MAE Reduction</span></div>
+        <div class="pc-tags"><span class="ptag">Python</span><span class="ptag">Linear Regression</span><span class="ptag">Pandas</span><span class="ptag">NumPy</span></div>
+        <a href="https://github.com/rutujam24" target="_blank" class="pc-link">View on GitHub →</a>
+      </div>
+      <div class="pc r">
+        <div class="pc-num">05</div>
+        <h3 class="pc-title">Uber Ride Analytics</h3>
+        <p class="pc-desc">EDA on 148,770+ Uber bookings uncovering demand patterns, peak hours, top-performing zones, and customer behaviour trends.</p>
+        <div class="pc-metrics"><span class="met">148,770+ Records</span><span class="met">Demand Insights</span></div>
+        <div class="pc-tags"><span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">Matplotlib</span><span class="ptag">Seaborn</span><span class="ptag">EDA</span></div>
+        <a href="https://github.com/rutujam24" target="_blank" class="pc-link">View on GitHub →</a>
+      </div>
+      <div class="pc r">
+        <div class="pc-num">06</div>
+        <h3 class="pc-title">Online Mobile Shop Sales Dashboard</h3>
+        <p class="pc-desc">Interactive Power BI dashboard with 8+ KPIs tracking sales performance, revenue trends, and product-level insights with dynamic slicers and drill-throughs.</p>
+        <div class="pc-metrics"><span class="met">8+ KPIs</span><span class="met">Interactive Slicers</span></div>
+        <div class="pc-tags"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">KPI Reporting</span><span class="ptag">Excel</span></div>
+        <a href="https://github.com/rutujam24" target="_blank" class="pc-link">View on GitHub →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CERTIFICATIONS ── -->
+<section id="certifications">
+  <div class="wrap">
+    <div class="eyebrow r">Credentials</div>
+    <h2 class="stitle r">Certifi<span class="it">cations</span></h2>
+    <p class="ssub r">Recognised credentials validating expertise in Data Science and Quantitative Analysis.</p>
+    <div class="cert-grid r2">
+      <div class="cc">
+        <div class="cc-ico">🏛️</div>
+        <div>
+          <div class="cc-name">Advanced Certification — Master in Data Science</div>
+          <div class="cc-by">E&ICT Academy · IIT Guwahati · Indian Institute of Technology</div>
+          <div class="cc-badge">⭐ IIT Guwahati Certified</div>
+        </div>
+      </div>
+      <div class="cc">
+        <div class="cc-ico">🏦</div>
+        <div>
+          <div class="cc-name">Quantitative Research Job Simulation</div>
+          <div class="cc-by">JP Morgan Chase & Co. · Completion Certificate</div>
+          <div class="cc-badge">✓ Verified Certificate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EDUCATION ── -->
+<section id="education">
+  <div class="wrap">
+    <div class="eyebrow r">Background</div>
+    <h2 class="stitle r">Edu<span class="it">cation</span></h2>
+    <p class="ssub r">Strong academic foundation in engineering, mathematics, and computer science.</p>
+    <div class="edu-wrap r2">
+      <div class="edu-item">
+        <div class="edu-yr">2021 – 2025</div>
+        <div class="edu-deg">BE — Information Technology</div>
+        <div class="edu-inst">I2IT, Pune · Savitribai Phule Pune University</div>
+        <span class="edu-score">CGPA 7.51 · Final Sem SGPA 8.40</span>
+      </div>
+      <div class="edu-item">
+        <div class="edu-yr">2020</div>
+        <div class="edu-deg">HSC — 12th Grade</div>
+        <div class="edu-inst">Maharashtra State Board of Higher Secondary Education</div>
+        <span class="edu-score">63%</span>
+      </div>
+      <div class="edu-item">
+        <div class="edu-yr">2018</div>
+        <div class="edu-deg">SSC — 10th Grade</div>
+        <div class="edu-inst">Maharashtra State Board of Secondary Education</div>
+        <span class="edu-score">89.80%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow r">Say Hello</div>
+    <h2 class="stitle r">Get in <span class="it">Touch</span></h2>
+    <p class="ssub r">Actively seeking Data Analytics and Data Science roles. I respond within 24 hours.</p>
+    <div class="contact-grid">
+      <div class="r">
+        <div class="c-links">
+          <a href="mailto:rutujamore2624@gmail.com" class="cl"><div class="cl-ico">✉️</div>rutujamore2624@gmail.com</a>
+          <a href="tel:+918624871824" class="cl"><div class="cl-ico">📱</div>+91 8624871824</a>
+          <a href="https://github.com/rutujam24" target="_blank" class="cl"><div class="cl-ico">💻</div>github.com/rutujam24</a>
+          <div class="cl" style="cursor:default"><div class="cl-ico">📍</div>Pimple Saudagar, Pune, Maharashtra</div>
+        </div>
+      </div>
+      <div class="r2">
+        <div class="form">
+          <div class="fg"><label>Name</label><input type="text" placeholder="Your full name"/></div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com"/></div>
+          <div class="fg"><label>Message</label><textarea placeholder="Hi Rutuja, I'd love to discuss an opportunity..."></textarea></div>
+          <button class="form-btn" onclick="sendMsg(this)">Send Message →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fc">© 2025 <span>Rutuja Dinkar More</span> · Data Analytics & Data Science</div>
+  <a href="#hero" class="fback">↑ Back to top</a>
+</footer>
+
+<script>
+// ── Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, {threshold: 0.09});
+document.querySelectorAll('.r,.r2,.r3').forEach(el => obs.observe(el));
+
+// ── Nav active link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 90) cur = s.id; });
+  navLinks.forEach(a => {
+    const isActive = a.getAttribute('href') === '#' + cur;
+    a.classList.toggle('active', isActive);
+  });
+}, {passive:true});
+
+// ── Nav smooth scroll — stay on same page
+navLinks.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target) target.scrollIntoView({behavior:'smooth'});
+  });
+});
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if(href.length > 1){
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if(target) target.scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
+
+// ── CV download
+document.getElementById('cvBtn').addEventListener('click', e => {
+  e.preventDefault();
+  alert('Please download the resume file from the chat above!');
+});
+
+// ── Contact form
+function sendMsg(btn){
+  btn.textContent = 'Message Sent ✓';
+  btn.style.background = '#5ecb8a';
+  btn.style.color = '#0a1a0f';
+  setTimeout(()=>{ btn.textContent='Send Message →'; btn.style.background=''; btn.style.color=''; }, 3000);
+}
+
+// ── Floating particles
+const pc = document.getElementById('particles');
+for(let i=0;i<22;i++){
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;animation-duration:${12+Math.random()*18}s;animation-delay:${Math.random()*15}s;width:${1+Math.random()*2}px;height:${1+Math.random()*2}px;opacity:${0.1+Math.random()*0.3}`;
+  pc.appendChild(p);
+}
+</script>
+</body>
+</html>
